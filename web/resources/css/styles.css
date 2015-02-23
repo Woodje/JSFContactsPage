@@ -1,0 +1,11 @@
+ul {
+    list-style: none;
+}
+
+li .contact {
+    height: 34px;
+}
+
+input {
+    height: 34px;
+}

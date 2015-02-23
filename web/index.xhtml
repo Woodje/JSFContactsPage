@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Contacts</title>
+    </h:head>
+    <h:outputStylesheet library="css" name="styles.css" />
+
+    <f:view>
+        <h1>Contacts</h1>
+
+        <h:form id="form">
+            <h:panelGrid>
+            <h:outputLabel for="name" >Name:</h:outputLabel><h:message for="name"/>
+            <h:inputText id="name" value="#{ ContactsForm.name }" />
+
+            <h:outputLabel for="phone">Phone:</h:outputLabel><h:message for="phone"/>
+            <h:inputText id="phone" value="#{ ContactsForm.phone }" />
+
+            <h:outputLabel for="email">Email:</h:outputLabel><h:message for="email"/>
+            <h:inputText id="email" value="#{ ContactsForm.email }" />
+
+            <h:outputLabel for="contactType">Department/Company:</h:outputLabel><h:message for="contactType"/>
+            <h:inputText id="contactType" value="#{ ContactsForm.contactType }" />
+
+            <h:outputLabel for="isExternal">External?</h:outputLabel>
+            <h:selectBooleanCheckbox id="isExternal" value="#{ ContactsForm.isExternal }" />
+
+            <h:commandButton type="submit" value="Add Contact" action="#{ ContactsForm.addContact() }" />
+            </h:panelGrid>
+        </h:form>
+
+        <ul>
+            <ui:repeat value="#{ Contacts.contacts }" var="entry">
+                <li>
+                    <br/>
+                    <div class="contact"><pre>#{ entry.toString() }</pre></div>
+                </li>
+            </ui:repeat>
+        </ul>
+    </f:view>
+
+</html>
